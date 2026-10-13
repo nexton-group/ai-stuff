@@ -1,0 +1,1247 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cycle de développement — Classique · IA 2025 · IA 2026</title>
+<meta name="description" content="Comment l&#039;IA réorganise le cycle de développement produit, phase par phase et rôle par rôle — et ce qui a changé entre 2025 et 2026. Une exploration interactive signée Nexton.">
+<link rel="canonical" href="https://nexton-group.github.io/ai-stuff/cycle.html">
+<!-- Open Graph / social share -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Nexton">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:title" content="Cycle de développement — Classique · IA 2025 · IA 2026">
+<meta property="og:description" content="Comment l&#039;IA réorganise le cycle de développement produit, phase par phase et rôle par rôle — et ce qui a changé entre 2025 et 2026. Une exploration interactive signée Nexton.">
+<meta property="og:url" content="https://nexton-group.github.io/ai-stuff/cycle.html">
+<meta property="og:image" content="https://nexton-group.github.io/ai-stuff/og-cycle.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Nexton — Cycle de développement, classique vs IA 2025 vs IA 2026">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Cycle de développement — Classique · IA 2025 · IA 2026">
+<meta name="twitter:description" content="Comment l&#039;IA réorganise le cycle de développement produit, phase par phase et rôle par rôle — et ce qui a changé entre 2025 et 2026. Une exploration interactive signée Nexton.">
+<meta name="twitter:image" content="https://nexton-group.github.io/ai-stuff/og-cycle.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{-webkit-text-size-adjust:100%}
+body{font-family:-apple-system,'SF Pro Display','SF Pro Text','Inter','Helvetica Neue',system-ui,sans-serif;background:linear-gradient(145deg,#F2F1F6 0%,#E8E7ED 30%,#F5F0FA 60%,#EDF3FE 100%);min-height:100vh;overflow-x:hidden}
+button{touch-action:manipulation;font-family:inherit}
+/* Liquid glass shared styles */
+.glass{background:rgba(255,255,255,0.55);backdrop-filter:blur(40px) saturate(1.8);-webkit-backdrop-filter:blur(40px) saturate(1.8);border:0.5px solid rgba(255,255,255,0.7);box-shadow:0 2px 20px rgba(0,0,0,0.06),0 0.5px 0 rgba(255,255,255,0.9) inset,0 -0.5px 0 rgba(0,0,0,0.04) inset}
+.glass-strong{background:rgba(255,255,255,0.72);backdrop-filter:blur(50px) saturate(2);-webkit-backdrop-filter:blur(50px) saturate(2);border:0.5px solid rgba(255,255,255,0.8);box-shadow:0 4px 30px rgba(0,0,0,0.07),0 1px 0 rgba(255,255,255,0.95) inset,0 -0.5px 0 rgba(0,0,0,0.03) inset}
+.glass-subtle{background:rgba(255,255,255,0.35);backdrop-filter:blur(30px) saturate(1.6);-webkit-backdrop-filter:blur(30px) saturate(1.6);border:0.5px solid rgba(255,255,255,0.5);box-shadow:0 1px 12px rgba(0,0,0,0.04),0 0.5px 0 rgba(255,255,255,0.8) inset}
+/* Animated gradient orbs for background depth */
+body::before,body::after{content:'';position:fixed;border-radius:50%;filter:blur(80px);opacity:0.4;z-index:0;pointer-events:none}
+body::before{width:600px;height:600px;background:radial-gradient(circle,#C2A6FF 0%,transparent 70%);top:-100px;right:-100px}
+body::after{width:500px;height:500px;background:radial-gradient(circle,#88CFFF 0%,transparent 70%);bottom:-100px;left:-50px}
+#root{position:relative;z-index:1}
+/* Display voice — heavy geometric grotesque echoing the NEXTON wordmark */
+.display{font-family:'Archivo','SF Pro Display',-apple-system,'Helvetica Neue',system-ui,sans-serif;font-weight:800}
+/* Choreographed entrance for AI-mode reveals (the classic→IA hero moment) */
+@keyframes ix-pop{from{opacity:0;transform:translateY(7px) scale(0.8)}to{opacity:1;transform:none}}
+@keyframes ix-rise{from{opacity:0;transform:translateY(9px)}to{opacity:1;transform:none}}
+.ix-pop{animation:ix-pop 0.5s cubic-bezier(0.22,1,0.36,1) both}
+.ix-rise{animation:ix-rise 0.55s cubic-bezier(0.22,1,0.36,1) both}
+/* Visible keyboard focus on glass — high-contrast ring */
+:focus-visible{outline:2.5px solid #007AFF;outline-offset:2px;border-radius:8px}
+:focus:not(:focus-visible){outline:none}
+@media (max-width:640px){
+  body::before{width:360px;height:360px;top:-80px;right:-80px}
+  body::after{width:320px;height:320px;bottom:-80px;left:-40px}
+}
+@media (prefers-reduced-motion: reduce){
+  .ix-pop,.ix-rise{animation:none}
+  *{transition-duration:0.01ms !important}
+}
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.9/babel.min.js"></script>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+const { useState, useEffect, useRef } = React;
+
+/* ───────────────────────────── DATA ─────────────────────────────
+   Trois états par tâche : classic (référentiel), ai (snapshot 2025,
+   inchangé), ai2026 (mise à jour sourcée). Les statuts comparent
+   toujours au cycle CLASSIQUE ; les notes disent l'état courant.   */
+
+const phases = [
+  {
+    id: "discovery",
+    name: "Discovery",
+    subtitle: "Comprendre le problème",
+    color: "#5856D6",
+    aiImpact: "expand",
+    aiImpactLabel: "Phase renforcée",
+    aiImpactDetail: "Décider quoi construire devient le vrai différenciateur. L'IA accélère la recherche mais la réflexion stratégique prend plus de poids.",
+    aiImpact2026: "expand",
+    aiImpact2026Label: "Phase renforcée",
+    aiImpact2026Detail: "L'exécution devient bon marché : la contrainte n'est plus la capacité à construire mais le jugement produit — décider ce qui mérite d'exister (Anthropic, 2026).",
+    roles: {
+      product: {
+        classic: [
+          "Recueil des besoins utilisateurs",
+          "Analyse du marché & concurrence",
+          "Définition de la vision produit",
+          "Rédaction des user stories",
+          "Priorisation (MoSCoW, RICE…)",
+        ],
+        ai: [
+          { text: "Recueil des besoins utilisateurs", status: "keep" },
+          { text: "Analyse du marché & concurrence", status: "accelerated", note: "IA synthétise veille et data" },
+          { text: "Définition de la vision produit", status: "elevated", note: "Devient le différenciateur #1" },
+          { text: "Rédaction des user stories", status: "accelerated", note: "Draft IA + validation humaine" },
+          { text: "Priorisation (MoSCoW, RICE…)", status: "elevated", note: "Plus critique quand on peut tout construire vite" },
+          { text: "Prototypage rapide via IA (Lovable, v0)", status: "new", note: "Le PM valide des prototypes avant le design" },
+        ],
+        ai2026: [
+          { text: "Recueil des besoins utilisateurs", status: "elevated", note: "Ancrer les choix dans l'évidence utilisateur, pas l'intuition" },
+          { text: "Analyse du marché & concurrence", status: "accelerated", note: "Agents de recherche autonomes (deep research)" },
+          { text: "Définition de la vision produit", status: "elevated", note: "Le jugement produit est la ressource rare (Anthropic 2026)" },
+          { text: "Rédaction des user stories", status: "transformed", note: "Deviennent des specs exécutables (SDD)" },
+          { text: "Priorisation (MoSCoW, RICE…)", status: "elevated", note: "On peut tout construire — choisir devient le goulot" },
+          { text: "Prototypage rapide via IA", status: "new", note: "Normalisé : v0, Lovable, Figma Make — le proto précède le brief" },
+        ],
+      },
+      design: {
+        classic: [
+          "Recherche utilisateur (interviews, surveys)",
+          "Audit UX de l'existant",
+          "Personas & parcours utilisateurs",
+          "Benchmark design & tendances",
+        ],
+        ai: [
+          { text: "Recherche utilisateur (interviews, surveys)", status: "elevated", note: "Devient le cœur du rôle design" },
+          { text: "Audit UX de l'existant", status: "accelerated", note: "IA aide à l'analyse heuristique" },
+          { text: "Personas & parcours utilisateurs", status: "accelerated", note: "Génération IA + raffinement humain" },
+          { text: "Benchmark design & tendances", status: "accelerated", note: "IA scanne et synthétise" },
+          { text: "Test de prototypes IA avec utilisateurs", status: "new", note: "Validation des protos générés par le PM" },
+        ],
+        ai2026: [
+          { text: "Recherche utilisateur (interviews, surveys)", status: "elevated", note: "Toujours le cœur — l'évidence utilisateur guide les agents" },
+          { text: "Audit UX de l'existant", status: "accelerated", note: "Des agents parcourent le produit et rapportent" },
+          { text: "Personas & parcours utilisateurs", status: "accelerated", note: "Génération + raffinement humain" },
+          { text: "Benchmark design & tendances", status: "accelerated", note: "IA scanne et synthétise" },
+          { text: "Test de prototypes IA avec utilisateurs", status: "new", note: "Les protos viennent de partout : PM, design, dev" },
+        ],
+      },
+      dev: {
+        classic: [
+          "Audit technique de l'existant",
+          "Étude de faisabilité",
+          "Identification des contraintes techniques",
+          "Estimation macro des efforts",
+        ],
+        ai: [
+          { text: "Audit technique de l'existant", status: "accelerated", note: "IA analyse la codebase" },
+          { text: "Étude de faisabilité", status: "keep" },
+          { text: "Identification des contraintes techniques", status: "keep" },
+          { text: "Estimation macro des efforts", status: "transformed", note: "Estimations très différentes avec IA" },
+          { text: "Évaluation des outils IA adaptés au projet", status: "new" },
+        ],
+        ai2026: [
+          { text: "Audit technique de l'existant", status: "accelerated", note: "Des agents analysent la codebase entière en autonomie" },
+          { text: "Étude de faisabilité", status: "accelerated", note: "La faisabilité se teste en construisant : POC agentique en heures" },
+          { text: "Identification des contraintes techniques", status: "keep" },
+          { text: "Estimation macro des efforts", status: "transformed", note: "L'unité change : moins d'ETP, plus de budget agents/tokens" },
+          { text: "Choix du harness agentique (Claude Code, Cursor…)", status: "new", note: "Décision structurante, plus cosmétique" },
+        ],
+      },
+    },
+    deliverables: {
+      classic: ["Brief produit", "Personas", "User Journey Maps", "Étude de faisabilité"],
+      ai: ["Brief produit", "Personas", "User Journey Maps", "Étude de faisabilité", "Prototypes IA validés"],
+      ai2026: ["Brief produit", "Personas", "User Journey Maps", "Prototypes validés", "Choix du harness IA"],
+    },
+  },
+  {
+    id: "definition",
+    name: "Définition",
+    subtitle: "Cadrer la solution",
+    color: "#AF52DE",
+    aiImpact: "expand",
+    aiImpactLabel: "Phase renforcée",
+    aiImpactDetail: "La qualité du PRD conditionne directement la qualité du code IA. Spécifier devient aussi important que coder.",
+    aiImpact2026: "expand",
+    aiImpact2026Label: "Phase renforcée",
+    aiImpact2026Detail: "Le spec-driven development s'institutionnalise : la spec versionnée devient la source de vérité, le code un artefact généré contre elle (GitHub Spec Kit, AWS Kiro).",
+    roles: {
+      product: {
+        classic: [
+          "Rédaction du PRD",
+          "Définition des KPIs & métriques",
+          "Roadmap & planning macro",
+          "Arbitrage scope / budget / délai",
+        ],
+        ai: [
+          { text: "Rédaction du PRD ultra-détaillé", status: "elevated", note: "Le PRD devient le 'prompt' du projet" },
+          { text: "Définition des KPIs & métriques", status: "keep" },
+          { text: "Roadmap & planning macro", status: "transformed", note: "Cycles plus courts, itérations plus fréquentes" },
+          { text: "Arbitrage scope / budget / délai", status: "transformed", note: "Le budget dev chute, le budget test/review augmente" },
+          { text: "Critères d'acceptation exhaustifs", status: "new", note: "Indispensable pour guider l'IA" },
+        ],
+        ai2026: [
+          { text: "Spec exécutable & versionnée (SDD)", status: "transformed", note: "La spec est la source de vérité — le code est généré contre elle" },
+          { text: "Définition des KPIs & métriques", status: "keep" },
+          { text: "Roadmap & planning macro", status: "transformed", note: "Itérations en jours ; le backlog se draine en tâches d'agents" },
+          { text: "Arbitrage scope / budget / délai", status: "transformed", note: "Budget dev ↓, budget vérification ↑ (« taxe de vérification », DORA)" },
+          { text: "Critères d'acceptation exhaustifs", status: "elevated", note: "Le PM écrit ce contre quoi les agents construisent" },
+        ],
+      },
+      design: {
+        classic: [
+          "Architecture de l'information",
+          "User flows détaillés",
+          "Wireframes basse fidélité",
+          "Ateliers de co-conception",
+        ],
+        ai: [
+          { text: "Architecture de l'information", status: "elevated", note: "Plus critique que jamais" },
+          { text: "User flows détaillés", status: "keep" },
+          { text: "Wireframes basse fidélité", status: "accelerated", note: "Génération IA + curation humaine" },
+          { text: "Ateliers de co-conception", status: "keep" },
+          { text: "Validation des prototypes IA vs UX", status: "new", note: "Vérifier que les protos respectent les principes UX" },
+        ],
+        ai2026: [
+          { text: "Architecture de l'information", status: "elevated", note: "Structure = contexte pour les agents" },
+          { text: "User flows détaillés", status: "accelerated", note: "Générés depuis la spec, curés par le design" },
+          { text: "Wireframes basse fidélité", status: "reduced", note: "Court-circuités : on prototype directement en code" },
+          { text: "Ateliers de co-conception", status: "keep" },
+          { text: "Validation des prototypes IA vs UX", status: "elevated", note: "Volume de protos ×10 — la curation devient le travail" },
+        ],
+      },
+      dev: {
+        classic: [
+          "Architecture technique (choix stack)",
+          "Définition des API & data model",
+          "Estimation détaillée (story points)",
+          "Identification des risques techniques",
+        ],
+        ai: [
+          { text: "Architecture technique", status: "elevated", note: "Choix d'archi compatible IA-assisted dev" },
+          { text: "Définition des API & data model", status: "accelerated", note: "IA génère des schémas initiaux" },
+          { text: "Estimation détaillée", status: "transformed", note: "Moins pertinent avec IA" },
+          { text: "Identification des risques techniques", status: "keep" },
+          { text: "Setup des outils IA (Cursor, Copilot…)", status: "new" },
+        ],
+        ai2026: [
+          { text: "Architecture technique", status: "elevated", note: "Architecturer pour les agents : modularité, contexte, testabilité" },
+          { text: "Définition des API & data model", status: "accelerated", note: "Générés puis validés" },
+          { text: "Estimation détaillée", status: "reduced", note: "Obsolète quand l'agent livre en heures" },
+          { text: "Identification des risques techniques", status: "keep" },
+          { text: "Harness engineering (AGENTS.md, evals, guardrails)", status: "new", note: "Nouvelle discipline permanente" },
+        ],
+      },
+    },
+    deliverables: {
+      classic: ["PRD", "Wireframes", "Architecture technique", "Backlog initial"],
+      ai: ["PRD détaillé (= prompt projet)", "Wireframes", "Architecture technique", "Backlog initial", "Config outils IA"],
+      ai2026: ["Spec exécutable versionnée", "Architecture technique", "Backlog d'agents", "Conventions agents (AGENTS.md)"],
+    },
+  },
+  {
+    id: "design",
+    name: "Design",
+    subtitle: "Concevoir l'expérience",
+    color: "#FF2D55",
+    aiImpact: "transform",
+    aiImpactLabel: "Phase transformée",
+    aiImpactDetail: "La production d'écrans s'accélère. Le designer monte en gamme : UX research, design system, accessibilité.",
+    aiImpact2026: "transform",
+    aiImpact2026Label: "Phase transformée",
+    aiImpact2026Detail: "Les frontières se brouillent : les designers livrent du code, les PM prototypent. La curation et la direction remplacent la production d'écrans (AI in Design 2026).",
+    roles: {
+      product: {
+        classic: [
+          "Validation des maquettes vs requirements",
+          "Arbitrage des edge cases",
+          "Rédaction du contenu (UX writing)",
+          "Priorisation des écrans / features",
+        ],
+        ai: [
+          { text: "Validation des maquettes vs requirements", status: "keep" },
+          { text: "Arbitrage des edge cases", status: "keep" },
+          { text: "UX writing", status: "accelerated", note: "Drafts IA + ton humain" },
+          { text: "Priorisation des écrans / features", status: "keep" },
+        ],
+        ai2026: [
+          { text: "Validation des maquettes vs requirements", status: "keep" },
+          { text: "Arbitrage des edge cases", status: "elevated", note: "L'IA génère vite mais tranche mal les cas limites" },
+          { text: "UX writing", status: "accelerated", note: "Drafts IA + ton humain" },
+          { text: "Priorisation des écrans / features", status: "keep" },
+        ],
+      },
+      design: {
+        classic: [
+          "UI Design haute fidélité (Figma)",
+          "Design system & composants",
+          "Prototypage interactif",
+          "Specs d'animation & micro-interactions",
+          "Design responsive & adaptatif",
+          "Accessibilité (WCAG)",
+        ],
+        ai: [
+          { text: "UI Design haute fidélité (Figma)", status: "accelerated", note: "IA génère des variantes, le designer curate" },
+          { text: "Design system & composants", status: "elevated", note: "Encore plus critique pour la cohérence du code IA" },
+          { text: "Prototypage interactif", status: "accelerated", note: "Protos code en minutes via IA" },
+          { text: "Specs d'animation & micro-interactions", status: "keep" },
+          { text: "Design responsive & adaptatif", status: "accelerated", note: "IA gère les déclinaisons basiques" },
+          { text: "Accessibilité (WCAG)", status: "elevated", note: "L'IA oublie souvent l'accessibilité" },
+          { text: "Review du code UI généré par IA", status: "new", note: "Vérifier la fidélité visuelle du code" },
+        ],
+        ai2026: [
+          { text: "UI Design haute fidélité", status: "transformed", note: "Design en code : Figma Make, v0 — la maquette devient exécutable" },
+          { text: "Design system & composants", status: "elevated", note: "Tokens & composants = le contexte des agents" },
+          { text: "Prototypage interactif", status: "accelerated", note: "Protos code en minutes, testables immédiatement" },
+          { text: "Specs d'animation & micro-interactions", status: "keep" },
+          { text: "Design responsive & adaptatif", status: "accelerated", note: "Déclinaisons générées, curées" },
+          { text: "Accessibilité (WCAG)", status: "elevated", note: "L'IA génère toujours du code peu accessible — vigilance humaine" },
+          { text: "Livraison de code par le design", status: "new", note: "50 % des designers ont poussé du code IA en prod (AI in Design 2026)" },
+        ],
+      },
+      dev: {
+        classic: [
+          "Review de faisabilité des maquettes",
+          "Feedback sur les interactions complexes",
+          "Préparation de l'environnement de dev",
+          "POC sur les composants critiques",
+        ],
+        ai: [
+          { text: "Review de faisabilité des maquettes", status: "reduced", note: "Moins critique — l'IA implémente quasi tout" },
+          { text: "Feedback sur les interactions complexes", status: "keep" },
+          { text: "Préparation de l'environnement de dev", status: "accelerated", note: "Scaffolding IA" },
+          { text: "POC sur les composants critiques", status: "accelerated", note: "POC en heures au lieu de jours" },
+        ],
+        ai2026: [
+          { text: "Review de faisabilité des maquettes", status: "reduced", note: "L'agent implémente quasi tout" },
+          { text: "Feedback sur les interactions complexes", status: "keep" },
+          { text: "Préparation de l'environnement de dev", status: "accelerated", note: "Scaffolding agentique complet" },
+          { text: "POC sur les composants critiques", status: "accelerated", note: "POC agentique en heures" },
+        ],
+      },
+    },
+    deliverables: {
+      classic: ["Maquettes UI finales", "Design System", "Prototype cliquable", "Specs d'animation"],
+      ai: ["Maquettes UI finales", "Design System tokenisé", "Prototype code fonctionnel", "Specs d'animation"],
+      ai2026: ["Maquettes + code (Figma Make)", "Design System tokenisé", "Prototype fonctionnel", "Specs d'animation"],
+    },
+  },
+  {
+    id: "handoff",
+    name: "Handoff",
+    subtitle: "Transmettre aux devs",
+    color: "#E8780C",
+    aiImpact: "compress",
+    aiImpactLabel: "Phase compressée",
+    aiImpactDetail: "Le handoff traditionnel s'efface. L'IA lit directement le Figma (Dev Mode + MCP). Le design-to-code devient quasi-instantané.",
+    aiImpact2026: "compress",
+    aiImpact2026Label: "Phase compressée",
+    aiImpact2026Detail: "Le handoff se dissout dans la spec : contexte design (tokens, MCP) + spec exécutable suffisent aux agents. La phase fusionne progressivement avec Définition.",
+    roles: {
+      product: {
+        classic: [
+          "Validation finale du scope sprint",
+          "Rédaction des critères d'acceptation",
+          "Organisation du sprint planning",
+          "Clarification des user stories",
+        ],
+        ai: [
+          { text: "Validation finale du scope sprint", status: "keep" },
+          { text: "Critères d'acceptation", status: "elevated", note: "Critères = instructions pour l'IA" },
+          { text: "Sprint planning", status: "transformed", note: "Sprints plus courts" },
+          { text: "Clarification des user stories", status: "keep" },
+        ],
+        ai2026: [
+          { text: "Validation finale du scope sprint", status: "transformed", note: "Le sprint devient un lot de runs d'agents" },
+          { text: "Critères d'acceptation", status: "elevated", note: "= le contrat d'exécution des agents" },
+          { text: "Sprint planning", status: "transformed", note: "Planifier = décomposer pour paralléliser les agents" },
+          { text: "Clarification des user stories", status: "reduced", note: "La spec SDD lève l'ambiguïté en amont" },
+        ],
+      },
+      design: {
+        classic: [
+          "Handoff Figma (Dev Mode / inspect)",
+          "Export des assets (icônes, images…)",
+          "Documentation des comportements",
+          "Redlines & spécifications visuelles",
+          "Tokens design (couleurs, typo, spacing)",
+        ],
+        ai: [
+          { text: "Handoff Figma → Code IA (MCP Figma)", status: "transformed", note: "L'IA lit directement le Figma" },
+          { text: "Export des assets", status: "accelerated", note: "Automatisé via plugins" },
+          { text: "Documentation des comportements", status: "reduced", note: "Moins nécessaire si l'IA code depuis le design" },
+          { text: "Redlines & specs visuelles", status: "reduced", note: "L'IA interprète directement le Figma" },
+          { text: "Tokens design", status: "elevated", note: "Les tokens alimentent directement le code IA" },
+        ],
+        ai2026: [
+          { text: "Handoff Figma → agents (MCP)", status: "transformed", note: "MCP mature : l'agent lit design, tokens, variables" },
+          { text: "Export des assets", status: "accelerated", note: "Automatisé" },
+          { text: "Documentation des comportements", status: "reduced", note: "Portée par la spec et le design system" },
+          { text: "Redlines & specs visuelles", status: "reduced", note: "L'agent interprète directement le Figma" },
+          { text: "Tokens design", status: "elevated", note: "Alimentent directement les agents" },
+        ],
+      },
+      dev: {
+        classic: [
+          "Review des specs & questions",
+          "Découpage technique en tâches",
+          "Estimation fine par tâche",
+          "Setup du projet & CI/CD",
+        ],
+        ai: [
+          { text: "Review des specs & questions", status: "reduced", note: "L'IA comprend le Figma directement" },
+          { text: "Découpage technique en tâches", status: "accelerated", note: "L'IA propose le découpage" },
+          { text: "Estimation fine par tâche", status: "reduced", note: "Moins pertinent quand l'IA code en heures" },
+          { text: "Setup du projet & CI/CD", status: "accelerated", note: "Scaffolding IA complet" },
+        ],
+        ai2026: [
+          { text: "Review des specs & questions", status: "reduced", note: "La spec SDD répond en amont" },
+          { text: "Découpage technique en tâches", status: "transformed", note: "L'orchestrateur décompose ; l'humain valide le plan" },
+          { text: "Estimation fine par tâche", status: "reduced", note: "Obsolète à l'heure des runs d'agents" },
+          { text: "Setup du projet & CI/CD", status: "accelerated", note: "Pipelines pensés pour les PR d'agents" },
+        ],
+      },
+    },
+    deliverables: {
+      classic: ["User stories + critères", "Fichier Figma annoté", "Backlog sprint", "Environnement prêt"],
+      ai: ["User stories + critères détaillés", "Figma connecté (MCP)", "Backlog sprint", "Env + outils IA prêts"],
+      ai2026: ["Spec + critères (contrat agents)", "Figma connecté (MCP)", "Plan de runs d'agents", "CI/CD prêt pour agents"],
+    },
+  },
+  {
+    id: "development",
+    name: "Développement",
+    subtitle: "Construire la solution",
+    color: "#34C759",
+    aiImpact: "compress",
+    aiImpactLabel: "Phase compressée",
+    aiImpactDetail: "Le coding pur se compresse de 30-60%. Mais le code IA est plus volumineux et buggé. Le bottleneck se déplace vers la code review.",
+    aiImpact2026: "transform",
+    aiImpact2026Label: "Phase transformée",
+    aiImpact2026Detail: "De l'écriture à l'orchestration : multi-agents, runs longs, tâches de fond. L'IA couvre ~60 % du travail mais seuls 0-20 % sont totalement délégables (Anthropic, 2026).",
+    roles: {
+      product: {
+        classic: [
+          "Suivi de l'avancement (daily standup)",
+          "Clarification continue des requirements",
+          "Arbitrage en cas de blocage",
+          "Gestion des changements de scope",
+        ],
+        ai: [
+          { text: "Suivi de l'avancement", status: "keep" },
+          { text: "Clarification continue des requirements", status: "elevated", note: "Requêtes plus fréquentes car cycles plus courts" },
+          { text: "Arbitrage en cas de blocage", status: "keep" },
+          { text: "Gestion des changements de scope", status: "keep" },
+          { text: "Review fonctionnelle continue du code IA", status: "new", note: "Vérifier que l'IA implémente bien l'intent" },
+        ],
+        ai2026: [
+          { text: "Suivi de l'avancement", status: "transformed", note: "Superviser des runs d'agents, pas des daily standups" },
+          { text: "Clarification continue des requirements", status: "elevated", note: "L'ambiguïté se paie en rework immédiat" },
+          { text: "Arbitrage en cas de blocage", status: "keep" },
+          { text: "Gestion des changements de scope", status: "keep" },
+          { text: "Review fonctionnelle continue du code IA", status: "elevated", note: "L'« intent drift » est le risque n°1" },
+        ],
+      },
+      design: {
+        classic: [
+          "Support design pendant le dev",
+          "Ajustements & itérations visuelles",
+          "Review de l'implémentation UI",
+          "Gestion des cas non prévus",
+        ],
+        ai: [
+          { text: "Support design pendant le dev", status: "keep" },
+          { text: "Ajustements & itérations visuelles", status: "accelerated", note: "Itérations en minutes" },
+          { text: "Review de l'implémentation UI", status: "elevated", note: "L'IA fait des erreurs visuelles subtiles" },
+          { text: "Gestion des cas non prévus", status: "keep" },
+        ],
+        ai2026: [
+          { text: "Support design pendant le dev", status: "keep" },
+          { text: "Ajustements & itérations visuelles", status: "accelerated", note: "Itérations en minutes, directement en code" },
+          { text: "Review de l'implémentation UI", status: "elevated", note: "Erreurs visuelles subtiles à volume élevé" },
+          { text: "Gestion des cas non prévus", status: "keep" },
+        ],
+      },
+      dev: {
+        classic: [
+          "Développement front-end",
+          "Développement back-end & API",
+          "Intégration des composants UI",
+          "Tests unitaires & d'intégration",
+          "Code reviews (pull requests)",
+          "Documentation technique",
+        ],
+        ai: [
+          { text: "Développement front-end", status: "accelerated", note: "IA génère 70%+ du code front" },
+          { text: "Développement back-end & API", status: "accelerated", note: "IA assiste mais moins autonome" },
+          { text: "Intégration des composants UI", status: "accelerated", note: "Quasi-automatique depuis Figma" },
+          { text: "Tests unitaires & d'intégration", status: "accelerated", note: "IA génère les tests" },
+          { text: "Code reviews (pull requests)", status: "elevated", note: "Nouveau bottleneck — code IA + volumineux" },
+          { text: "Documentation technique", status: "accelerated", note: "IA génère la doc" },
+          { text: "Orchestration & supervision de l'IA", status: "new", note: "Le dev devient chef d'orchestre" },
+          { text: "Refactoring du code IA", status: "new", note: "Réduire la dette technique IA" },
+        ],
+        ai2026: [
+          { text: "Développement front-end", status: "transformed", note: "Généré par agents ; l'humain oriente et tranche" },
+          { text: "Développement back-end & API", status: "transformed", note: "Agents autonomes sur périmètres cadrés" },
+          { text: "Intégration des composants UI", status: "accelerated", note: "Quasi-automatique depuis le design" },
+          { text: "Tests unitaires & d'intégration", status: "accelerated", note: "Générés — mais à auditer" },
+          { text: "Code reviews (pull requests)", status: "critical", note: "Review +91 % (Faros) ; PR d'agents en attente 4,6× (Opsera)" },
+          { text: "Documentation technique", status: "accelerated", note: "Générée en continu" },
+          { text: "Orchestration multi-agents", status: "elevated", note: "Planner, implémenteur, testeur, reviewer en parallèle" },
+          { text: "Runs longs & agents en tâche de fond", status: "new", note: "Sessions de plusieurs heures, PR au réveil" },
+          { text: "Refactoring du code IA", status: "elevated", note: "Churn et duplication en hausse (GitClear)" },
+        ],
+      },
+    },
+    deliverables: {
+      classic: ["Code source", "Tests automatisés", "Documentation API", "Build déployable"],
+      ai: ["Code source (humain + IA)", "Tests (+ couverture IA)", "Doc API", "Build déployable", "Rapport dette technique IA"],
+      ai2026: ["Code (agents + humains)", "Tests (couverture auditée)", "Doc générée", "Build déployable", "Journal des runs d'agents"],
+    },
+  },
+  {
+    id: "qa",
+    name: "QA & Recette",
+    subtitle: "Vérifier la qualité",
+    color: "#5AC8FA",
+    aiImpact: "expand",
+    aiImpactLabel: "Phase renforcée",
+    aiImpactDetail: "Le code IA est plus buggé et crée de la duplication (×4 selon GitClear). La QA devient critique.",
+    aiImpact2026: "expand",
+    aiImpact2026Label: "Phase critique",
+    aiImpact2026Detail: "La « taxe de vérification » (DORA) : le temps gagné à écrire se re-dépense à auditer. Le débit monte, l'instabilité aussi — rework et échecs de changement.",
+    roles: {
+      product: {
+        classic: [
+          "Tests d'acceptation (UAT)",
+          "Validation fonctionnelle vs specs",
+          "Gestion des anomalies (priorités)",
+          "Go / No-Go de mise en production",
+        ],
+        ai: [
+          { text: "Tests d'acceptation (UAT)", status: "elevated", note: "Plus de code = plus de surface à tester" },
+          { text: "Validation fonctionnelle vs specs", status: "elevated", note: "L'IA peut dévier de l'intent" },
+          { text: "Gestion des anomalies", status: "keep" },
+          { text: "Go / No-Go de mise en production", status: "keep" },
+        ],
+        ai2026: [
+          { text: "Tests d'acceptation (UAT)", status: "critical", note: "Plus de code, plus vite : la surface de test explose" },
+          { text: "Validation fonctionnelle vs specs", status: "elevated", note: "Vérifier le code contre la spec ET l'évidence d'origine" },
+          { text: "Gestion des anomalies", status: "keep" },
+          { text: "Go / No-Go de mise en production", status: "elevated", note: "L'humain porte la responsabilité, pas l'agent" },
+        ],
+      },
+      design: {
+        classic: [
+          "QA visuelle (pixel perfect)",
+          "Vérification responsive",
+          "Test des animations & transitions",
+          "Audit d'accessibilité",
+          "Test sur devices réels",
+        ],
+        ai: [
+          { text: "QA visuelle (pixel perfect)", status: "elevated", note: "L'IA fait des approximations visuelles" },
+          { text: "Vérification responsive", status: "keep" },
+          { text: "Test des animations & transitions", status: "keep" },
+          { text: "Audit d'accessibilité", status: "elevated", note: "L'IA génère du code peu accessible" },
+          { text: "Test sur devices réels", status: "keep" },
+        ],
+        ai2026: [
+          { text: "QA visuelle (pixel perfect)", status: "elevated", note: "Approximations visuelles à volume élevé" },
+          { text: "Vérification responsive", status: "keep" },
+          { text: "Test des animations & transitions", status: "keep" },
+          { text: "Audit d'accessibilité", status: "elevated", note: "Toujours le point faible du code généré" },
+          { text: "Test sur devices réels", status: "keep" },
+        ],
+      },
+      dev: {
+        classic: [
+          "Tests end-to-end (E2E)",
+          "Tests de performance & charge",
+          "Tests de sécurité",
+          "Correction des bugs",
+          "Tests de compatibilité navigateurs",
+        ],
+        ai: [
+          { text: "Tests end-to-end (E2E)", status: "accelerated", note: "IA génère les scénarios E2E" },
+          { text: "Tests de performance & charge", status: "elevated", note: "Code IA souvent moins optimisé" },
+          { text: "Tests de sécurité", status: "elevated", note: "IA introduit des vulnérabilités" },
+          { text: "Correction des bugs", status: "accelerated", note: "IA corrige mais peut régresser" },
+          { text: "Tests de compatibilité navigateurs", status: "keep" },
+          { text: "Audit de duplication de code IA", status: "new", note: "Duplication ×4 avec IA (GitClear)" },
+        ],
+        ai2026: [
+          { text: "Tests end-to-end (E2E)", status: "accelerated", note: "Des agents QA génèrent et exécutent les scénarios" },
+          { text: "Tests de performance & charge", status: "elevated", note: "Code généré souvent moins optimisé" },
+          { text: "Tests de sécurité", status: "critical", note: "Vulnérabilités jusqu'à ×2,74 sur code IA (Opsera)" },
+          { text: "Correction des bugs", status: "accelerated", note: "Agents corrigent — sous supervision" },
+          { text: "Tests de compatibilité navigateurs", status: "keep" },
+          { text: "Audit de duplication de code IA", status: "elevated", note: "Churn en hausse continue (GitClear)" },
+          { text: "Evals des systèmes agentiques", status: "new", note: "Tester le harness, pas seulement le code" },
+        ],
+      },
+    },
+    deliverables: {
+      classic: ["Rapport de tests", "Liste de bugs priorisée", "Build validé", "Checklist de déploiement"],
+      ai: ["Rapport de tests", "Bugs priorisés", "Build validé", "Checklist", "Audit sécurité IA", "Score dette technique"],
+      ai2026: ["Rapport de tests", "Bugs priorisés", "Build validé", "Audit sécurité", "Evals agents", "Score dette IA"],
+    },
+  },
+  {
+    id: "launch",
+    name: "Lancement",
+    subtitle: "Mettre en production",
+    color: "#E8780C",
+    aiImpact: "neutral",
+    aiImpactLabel: "Phase stable",
+    aiImpactDetail: "Le lancement change peu. L'IA accélère certaines tâches (monitoring, docs) mais le processus reste le même.",
+    aiImpact2026: "neutral",
+    aiImpact2026Label: "Phase stable",
+    aiImpact2026Detail: "Le processus tient, mais l'instabilité du code IA (échecs de changement, rework — DORA 2025) rend monitoring et rollback plus critiques.",
+    roles: {
+      product: {
+        classic: [
+          "Communication interne & externe",
+          "Formation des équipes",
+          "Release notes & changelog",
+          "Activation du feature flag",
+        ],
+        ai: [
+          { text: "Communication interne & externe", status: "accelerated", note: "IA rédige les drafts" },
+          { text: "Formation des équipes", status: "keep" },
+          { text: "Release notes & changelog", status: "accelerated", note: "Généré depuis les commits" },
+          { text: "Activation du feature flag", status: "keep" },
+        ],
+        ai2026: [
+          { text: "Communication interne & externe", status: "accelerated", note: "Drafts générés, ton humain" },
+          { text: "Formation des équipes", status: "keep" },
+          { text: "Release notes & changelog", status: "accelerated", note: "Générés depuis les commits" },
+          { text: "Activation du feature flag", status: "elevated", note: "Rollout progressif — contre l'instabilité IA" },
+        ],
+      },
+      design: {
+        classic: [
+          "Assets marketing (screenshots, vidéos)",
+          "Visuels de communication",
+          "Mise à jour portfolio / case study",
+          "Onboarding utilisateur (tooltips, guides)",
+        ],
+        ai: [
+          { text: "Assets marketing", status: "accelerated", note: "IA génère visuels et vidéos" },
+          { text: "Visuels de communication", status: "accelerated", note: "IA assiste la création" },
+          { text: "Mise à jour portfolio / case study", status: "keep" },
+          { text: "Onboarding utilisateur", status: "keep" },
+        ],
+        ai2026: [
+          { text: "Assets marketing", status: "accelerated", note: "Visuels et vidéos générés" },
+          { text: "Visuels de communication", status: "accelerated", note: "Génération assistée" },
+          { text: "Mise à jour portfolio / case study", status: "keep" },
+          { text: "Onboarding utilisateur", status: "keep" },
+        ],
+      },
+      dev: {
+        classic: [
+          "Déploiement en production",
+          "Monitoring & alerting",
+          "Migration de données",
+          "Rollback plan prêt",
+          "Configuration CDN & caching",
+        ],
+        ai: [
+          { text: "Déploiement en production", status: "keep" },
+          { text: "Monitoring & alerting", status: "elevated", note: "Plus important avec code IA en prod" },
+          { text: "Migration de données", status: "keep" },
+          { text: "Rollback plan prêt", status: "keep" },
+          { text: "Configuration CDN & caching", status: "keep" },
+        ],
+        ai2026: [
+          { text: "Déploiement en production", status: "keep" },
+          { text: "Monitoring & alerting", status: "elevated", note: "Change failure rate ↑ avec l'IA (DORA)" },
+          { text: "Migration de données", status: "keep" },
+          { text: "Rollback plan prêt", status: "elevated", note: "Sollicité plus souvent : rework en hausse (DORA)" },
+          { text: "Configuration CDN & caching", status: "keep" },
+        ],
+      },
+    },
+    deliverables: {
+      classic: ["App en production", "Monitoring actif", "Release notes", "Support documenté"],
+      ai: ["App en production", "Monitoring renforcé", "Release notes auto", "Support documenté"],
+      ai2026: ["App en production", "Monitoring renforcé", "Release notes auto", "Plan de rollback testé"],
+    },
+  },
+  {
+    id: "measure",
+    name: "Mesure & Itération",
+    subtitle: "Apprendre et améliorer",
+    color: "#FF3B30",
+    aiImpact: "expand",
+    aiImpactLabel: "Phase renforcée",
+    aiImpactDetail: "Cycles d'itération raccourcis. On teste plus d'hypothèses, plus vite. La capacité d'analyse devient le facteur limitant.",
+    aiImpact2026: "expand",
+    aiImpact2026Label: "Phase renforcée",
+    aiImpact2026Detail: "Boucle complète en heures. La maintenance — 60-80 % de l'effort total — devient le terrain des agents de fond… et de la dette qu'ils génèrent.",
+    roles: {
+      product: {
+        classic: [
+          "Analyse des KPIs & métriques",
+          "Collecte des retours utilisateurs",
+          "A/B testing & expérimentation",
+          "Rétrospective & apprentissages",
+          "Alimentation du backlog v2",
+        ],
+        ai: [
+          { text: "Analyse des KPIs & métriques", status: "accelerated", note: "IA synthétise les dashboards" },
+          { text: "Collecte des retours utilisateurs", status: "accelerated", note: "IA analyse sentiment et patterns" },
+          { text: "A/B testing & expérimentation", status: "elevated", note: "Plus de variantes testables" },
+          { text: "Rétrospective & apprentissages", status: "keep" },
+          { text: "Alimentation du backlog v2", status: "keep" },
+          { text: "Gestion de la dette technique IA", status: "new", note: "Nouveau sujet de backlog permanent" },
+        ],
+        ai2026: [
+          { text: "Analyse des KPIs & métriques", status: "accelerated", note: "Synthèse par agents" },
+          { text: "Collecte des retours utilisateurs", status: "accelerated", note: "Sentiment et patterns analysés en continu" },
+          { text: "A/B testing & expérimentation", status: "elevated", note: "Les variantes ne coûtent plus rien — l'analyse est le goulot" },
+          { text: "Rétrospective & apprentissages", status: "keep" },
+          { text: "Alimentation du backlog v2", status: "transformed", note: "Le backlog se draine en runs d'agents nocturnes" },
+          { text: "Gestion de la dette technique IA", status: "elevated", note: "Sujet permanent du backlog" },
+        ],
+      },
+      design: {
+        classic: [
+          "Analyse des heatmaps & sessions",
+          "Tests utilisateurs post-lancement",
+          "Identification des pain points UX",
+          "Propositions d'améliorations",
+        ],
+        ai: [
+          { text: "Analyse des heatmaps & sessions", status: "accelerated", note: "IA détecte les patterns" },
+          { text: "Tests utilisateurs post-lancement", status: "elevated", note: "Plus de variantes à tester" },
+          { text: "Identification des pain points UX", status: "keep" },
+          { text: "Propositions d'améliorations", status: "keep" },
+          { text: "Itération rapide design → code → test", status: "new", note: "Boucle complète en heures" },
+        ],
+        ai2026: [
+          { text: "Analyse des heatmaps & sessions", status: "accelerated", note: "Patterns détectés par agents" },
+          { text: "Tests utilisateurs post-lancement", status: "elevated", note: "Plus de variantes à valider" },
+          { text: "Identification des pain points UX", status: "keep" },
+          { text: "Propositions d'améliorations", status: "keep" },
+          { text: "Itération rapide design → code → test", status: "elevated", note: "Boucle en heures — normalisée" },
+        ],
+      },
+      dev: {
+        classic: [
+          "Analyse des logs & erreurs",
+          "Optimisation des performances",
+          "Monitoring de la dette technique",
+          "Maintenance & patches",
+        ],
+        ai: [
+          { text: "Analyse des logs & erreurs", status: "accelerated", note: "IA détecte les anomalies" },
+          { text: "Optimisation des performances", status: "keep" },
+          { text: "Monitoring de la dette technique", status: "elevated", note: "Dette IA en croissance constante" },
+          { text: "Maintenance & patches", status: "accelerated", note: "IA corrige les bugs simples" },
+          { text: "Refactoring continu du code IA", status: "new", note: "Nécessaire pour la maintenabilité" },
+        ],
+        ai2026: [
+          { text: "Analyse des logs & erreurs", status: "accelerated", note: "Agents résument et localisent les incidents" },
+          { text: "Optimisation des performances", status: "keep" },
+          { text: "Monitoring de la dette technique", status: "critical", note: "Complexité persistante du code vibe-codé (étude Cursor, 807 repos)" },
+          { text: "Maintenance & patches", status: "accelerated", note: "Agents de fond drainent le backlog de bugs" },
+          { text: "Refactoring continu du code IA", status: "elevated", note: "Condition de survie de la maintenabilité" },
+        ],
+      },
+    },
+    deliverables: {
+      classic: ["Dashboard analytics", "Rapport d'usage", "Backlog d'itérations", "Rétrospective"],
+      ai: ["Dashboard analytics", "Rapport d'usage IA", "Backlog itérations", "Rétrospective", "Score dette IA"],
+      ai2026: ["Dashboard analytics", "Rapport d'usage", "Backlog itérations", "Rétrospective", "Score dette IA"],
+    },
+  },
+];
+
+const roleConfig = {
+  product: { label: "Produit", icon: "list", color: "#007AFF", text: "#0063CC" },
+  design: { label: "Design", icon: "pen", color: "#FF2D55", text: "#D11A40" },
+  dev: { label: "Dev", icon: "code", color: "#34C759", text: "#1E7A34" },
+};
+
+const statusConfig = {
+  keep:        { label: "Inchangé",          color: "#8E8E93", text: "#636366", bg: "transparent",             icon: "dash" },
+  accelerated: { label: "Accéléré par l'IA", color: "#007AFF", text: "#0063CC", bg: "rgba(0,122,255,0.07)",   icon: "fast" },
+  elevated:    { label: "Plus important",    color: "#E8780C", text: "#A85A00", bg: "rgba(232,120,12,0.08)",  icon: "up" },
+  critical:    { label: "Goulot critique",   color: "#FF3B30", text: "#D70015", bg: "rgba(255,59,48,0.09)",   icon: "alert" },
+  transformed: { label: "Transformé",        color: "#AF52DE", text: "#8E3FB8", bg: "rgba(175,82,222,0.07)",  icon: "swap" },
+  reduced:     { label: "Réduit",            color: "#8E8E93", text: "#636366", bg: "rgba(142,142,147,0.07)", icon: "down" },
+  new:         { label: "Nouveau",           color: "#34C759", text: "#1E7A34", bg: "rgba(52,199,89,0.07)",   icon: "plus" },
+};
+
+const impactConfig = {
+  compress:  { label: "Compressée",  color: "#007AFF", text: "#0063CC", icon: "trendDown", barScale: 0.55 },
+  expand:    { label: "Renforcée",   color: "#E8780C", text: "#A85A00", icon: "trendUp",   barScale: 1.4 },
+  transform: { label: "Transformée", color: "#AF52DE", text: "#8E3FB8", icon: "swap",      barScale: 0.85 },
+  neutral:   { label: "Stable",      color: "#8E8E93", text: "#636366", icon: "equals",    barScale: 1 },
+};
+
+/* ─── Études citées — chiffres repris dans les notes 2026 ─── */
+const sources = [
+  { year: "2025→26", tone: "mix",  name: "METR — RCT développeurs expérimentés", finding: "−19 % avec IA (début 2025) → +18 % estimé (début 2026). L'étude anti-hype la plus citée s'est retournée en un an.", url: "https://metr.org/blog/2025-07-10-early-2025-ai-experienced-os-dev-study/" },
+  { year: "2025", tone: "2025", name: "DORA — State of AI-assisted Software Development (Google Cloud, ~5 000 pros)", finding: "90 % d'adoption. Débit ↑ mais instabilité ↑ (rework, échecs de changement). 30 % ne font pas confiance au code IA — la « taxe de vérification ».", url: "https://dora.dev" },
+  { year: "2026", tone: "2026", name: "Faros AI — AI Engineering Report (22 000 devs)", finding: "Epics par dev +66 %. Temps de review +91 % dans les équipes à forte adoption. Signaux de qualité et de stabilité en baisse.", url: "https://www.faros.ai" },
+  { year: "2025", tone: "2025", name: "Opsera (250 000 devs)", finding: "Time-to-PR −58 %, mais les PR générées par IA attendent 4,6× plus longtemps en review. Vulnérabilités jusqu'à ×2,74.", url: "https://www.opsera.io" },
+  { year: "2025", tone: "2025", name: "McKinsey (4 500 devs, 150 entreprises)", finding: "−46 % sur les tâches routinières, moins de 10 % sur le travail complexe. Le gain est réel mais très inégal.", url: "https://www.mckinsey.com" },
+  { year: "2026", tone: "2026", name: "Anthropic — Agentic Coding Trends Report", finding: "IA sur ~60 % du travail, mais 0-20 % totalement délégable (« delegation gap »). L'ère de l'orchestration multi-agents.", url: "https://resources.anthropic.com/hubfs/2026%20Agentic%20Coding%20Trends%20Report.pdf" },
+  { year: "2026", tone: "2026", name: "AI in Design 2026 (900+ designers)", finding: "Les rôles se brouillent : designers → PM et engineering, et inversement. La moitié ont poussé du code généré par IA en production.", url: "https://stateofaidesign.com" },
+  { year: "2026", tone: "2026", name: "Spec-driven development — GitHub Spec Kit, AWS Kiro", finding: "La spec versionnée devient la source de vérité ; le code, un artefact généré. Adopté par tous les grands outils agentiques.", url: "https://github.com/github/spec-kit" },
+  { year: "2026", tone: "2026", name: "Étude Cursor — 807 repos GitHub", finding: "Le vibe coding produit « des gains de vélocité transitoires et une croissance persistante de la complexité du code ».", url: "https://arxiv.org" },
+  { year: "2024→26", tone: "mix", name: "GitClear — AI Code Quality", finding: "Duplication de code ×4-8, churn en hausse continue depuis l'adoption massive des assistants.", url: "https://www.gitclear.com" },
+  { year: "2025", tone: "2025", name: "Stack Overflow Developer Survey", finding: "84 % utilisent ou prévoient l'IA — mais la confiance recule : 46 % se méfient de la précision des outils.", url: "https://survey.stackoverflow.co/2025/" },
+  { year: "2026", tone: "2026", name: "Deloitte — Software Industry Outlook", finding: "Gains de productivité projetés de 30-35 % sur l'ensemble du cycle de développement logiciel.", url: "https://www.deloitte.com" },
+];
+
+/* Two-tier color: bright hue for fills/bars/badges, darker variant (AA on glass) for text */
+const TXT = {
+  "#007AFF": "#0063CC", "#FF2D55": "#D11A40", "#34C759": "#1E7A34", "#E8780C": "#A85A00",
+  "#AF52DE": "#8E3FB8", "#5856D6": "#5856D6", "#5AC8FA": "#0A6E9E", "#FF3B30": "#D70015",
+  "#8E8E93": "#636366",
+};
+const txt = c => TXT[c] || c;
+const INK = "#1D1D1F", BODY = "#3A3A3C", MUTED = "#636366", FAINT = "#6E6E73";
+
+/* Clean Feather-style icon set */
+function Ico({ name, size = 14, color = "currentColor", sw = 2, style }) {
+  const p = { width: size, height: size, viewBox: "0 0 24 24", fill: "none", stroke: color, strokeWidth: sw, strokeLinecap: "round", strokeLinejoin: "round", style: { flexShrink: 0, display: "block", ...(style || {}) } };
+  switch (name) {
+    case "list":      return <svg {...p}><line x1="8" y1="6" x2="20" y2="6"/><line x1="8" y1="12" x2="20" y2="12"/><line x1="8" y1="18" x2="20" y2="18"/><line x1="4" y1="6" x2="4.01" y2="6"/><line x1="4" y1="12" x2="4.01" y2="12"/><line x1="4" y1="18" x2="4.01" y2="18"/></svg>;
+    case "pen":       return <svg {...p}><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5z"/></svg>;
+    case "code":      return <svg {...p}><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>;
+    case "fast":      return <svg {...p}><polygon points="13 19 22 12 13 5 13 19" fill={color} stroke="none"/><polygon points="2 19 11 12 2 5 2 19" fill={color} stroke="none"/></svg>;
+    case "up":        return <svg {...p}><line x1="12" y1="19" x2="12" y2="5"/><polyline points="6 11 12 5 18 11"/></svg>;
+    case "down":      return <svg {...p}><line x1="12" y1="5" x2="12" y2="19"/><polyline points="6 13 12 19 18 13"/></svg>;
+    case "swap":      return <svg {...p}><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg>;
+    case "plus":      return <svg {...p}><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>;
+    case "dash":      return <svg {...p}><line x1="6" y1="12" x2="18" y2="12"/></svg>;
+    case "equals":    return <svg {...p}><line x1="6" y1="9" x2="18" y2="9"/><line x1="6" y1="15" x2="18" y2="15"/></svg>;
+    case "alert":     return <svg {...p}><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>;
+    case "trendUp":   return <svg {...p}><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>;
+    case "trendDown": return <svg {...p}><polyline points="23 18 13.5 8.5 8.5 13.5 1 6"/><polyline points="17 18 23 18 23 12"/></svg>;
+    case "box":       return <svg {...p}><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22" x2="12" y2="12"/></svg>;
+    case "cycle":     return <svg {...p}><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>;
+    case "book":      return <svg {...p}><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>;
+    default:          return null;
+  }
+}
+
+/* ─── Modes ─── */
+const MODES = [
+  { id: "classic", label: "Cycle classique", short: "Classique" },
+  { id: "ai2025", label: "Avec IA · 2025", short: "IA 2025", icon: "fast", grad: "linear-gradient(135deg,#007AFF,#5AC8FA)", shadow: "0 2px 8px rgba(0,122,255,0.3)" },
+  { id: "ai2026", label: "Avec IA · 2026", short: "IA 2026", icon: "swap", grad: "linear-gradient(135deg,#5856D6,#AF52DE)", shadow: "0 2px 8px rgba(175,82,222,0.32)" },
+];
+
+/* ─── Deep-linkable view state (mode + open phase + role live in the URL hash) ─── */
+const ROLE_IDS = ["product", "design", "dev"];
+function readView() {
+  if (typeof window === "undefined") return { mode: "classic", phase: null, role: null };
+  const p = new URLSearchParams(window.location.hash.replace(/^#/, ""));
+  const m = p.get("mode");
+  // Backward compat: legacy shared links used mode=ai for the 2025 snapshot.
+  const mode = m === "ai2026" ? "ai2026" : (m === "ai2025" || m === "ai") ? "ai2025" : "classic";
+  const phase = phases.some(ph => ph.id === p.get("phase")) ? p.get("phase") : null;
+  const role = ROLE_IDS.includes(p.get("role")) ? p.get("role") : null;
+  return { mode, phase, role: phase ? role : null };
+}
+function writeView({ mode, phase, role }) {
+  if (typeof window === "undefined") return;
+  const p = new URLSearchParams();
+  if (mode !== "classic") p.set("mode", mode);
+  if (phase) p.set("phase", phase);
+  if (phase && role) p.set("role", role);
+  const qs = p.toString();
+  window.history.replaceState(null, "", window.location.pathname + window.location.search + (qs ? "#" + qs : ""));
+}
+
+function SourcesSection({ isMobile }) {
+  const badgeStyle = tone => {
+    if (tone === "2026") return { bg: "rgba(175,82,222,0.12)", border: "rgba(175,82,222,0.3)", color: "#8E3FB8" };
+    if (tone === "2025") return { bg: "rgba(0,122,255,0.1)", border: "rgba(0,122,255,0.28)", color: "#0063CC" };
+    return { bg: "rgba(142,142,147,0.12)", border: "rgba(142,142,147,0.3)", color: "#636366" };
+  };
+  return (
+    <div className="glass-strong" style={{ borderRadius: 22, padding: isMobile ? 16 : 24, marginTop: 24 }}>
+      <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 4 }}>
+        <Ico name="book" size={isMobile ? 16 : 18} color={INK} sw={2.25} />
+        <h3 className="display" style={{ margin: 0, fontSize: isMobile ? 15 : 20, color: INK, letterSpacing: "-0.01em", textTransform: "uppercase" }}>Sources</h3>
+      </div>
+      <p style={{ fontSize: isMobile ? 11 : 12, color: MUTED, marginBottom: isMobile ? 12 : 16, lineHeight: 1.5 }}>
+        Les études derrière les états 2025 et 2026. Les chiffres cités dans les notes des tâches en sont issus.
+      </p>
+      <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "repeat(2, 1fr)", gap: isMobile ? 8 : 12 }}>
+        {sources.map((s, i) => {
+          const b = badgeStyle(s.tone);
+          return (
+            <div key={i} className="glass-subtle" style={{ borderRadius: 14, padding: isMobile ? "10px 12px" : "12px 14px", display: "flex", gap: 10, alignItems: "flex-start" }}>
+              <span style={{ flexShrink: 0, marginTop: 1, fontSize: 10, fontWeight: 700, fontVariantNumeric: "tabular-nums", letterSpacing: "0.02em", color: b.color, background: b.bg, border: `0.5px solid ${b.border}`, borderRadius: 7, padding: "2px 7px", whiteSpace: "nowrap" }}>{s.year}</span>
+              <div style={{ minWidth: 0 }}>
+                <a href={s.url} target="_blank" rel="noopener noreferrer" style={{ fontSize: isMobile ? 12 : 12.5, fontWeight: 700, color: INK, textDecoration: "none", borderBottom: "1px solid rgba(0,0,0,0.18)", lineHeight: 1.4 }}>{s.name}</a>
+                <div style={{ fontSize: isMobile ? 11 : 11.5, color: MUTED, marginTop: 3, lineHeight: 1.5 }}>{s.finding}</div>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
+function DevLifecycle() {
+  const initialView = readView();
+  const [mode, setMode] = useState(initialView.mode);
+  const [activePhase, setActivePhase] = useState(initialView.phase);
+  const [activeRole, setActiveRole] = useState(initialView.role);
+  const [isMobile, setIsMobile] = useState(typeof window !== "undefined" ? window.innerWidth < 640 : false);
+  const [copied, setCopied] = useState(false);
+  const copyTimer = useRef(null);
+  const isAi = mode !== "classic";
+  useEffect(() => {
+    const onResize = () => setIsMobile(window.innerWidth < 640);
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
+  }, []);
+  // Keep the URL in sync so any view is deep-linkable and survives a refresh.
+  useEffect(() => { writeView({ mode, phase: activePhase, role: activeRole }); }, [mode, activePhase, activeRole]);
+  // React to shared links, back/forward, and manual hash edits.
+  useEffect(() => {
+    const onHash = () => { const v = readView(); setMode(v.mode); setActivePhase(v.phase); setActiveRole(v.role); };
+    window.addEventListener("hashchange", onHash);
+    return () => window.removeEventListener("hashchange", onHash);
+  }, []);
+  useEffect(() => () => { if (copyTimer.current) clearTimeout(copyTimer.current); }, []);
+  const copyLink = () => {
+    const finish = () => {
+      setCopied(true);
+      if (copyTimer.current) clearTimeout(copyTimer.current);
+      copyTimer.current = setTimeout(() => setCopied(false), 1800);
+    };
+    try {
+      if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(window.location.href).then(finish, finish);
+      else finish();
+    } catch (e) { finish(); }
+  };
+
+  /* Per-mode selectors — statuses always compare to the CLASSIC baseline. */
+  const tasksOf = rd => mode === "classic" ? rd.classic.map(t => ({ text: t, status: "keep" })) : mode === "ai2025" ? rd.ai : rd.ai2026;
+  const deliverablesOf = d => mode === "classic" ? d.classic : mode === "ai2025" ? d.ai : d.ai2026;
+  const impactOf = ph => mode === "ai2026"
+    ? { key: ph.aiImpact2026, label: ph.aiImpact2026Label, detail: ph.aiImpact2026Detail }
+    : { key: ph.aiImpact, label: ph.aiImpactLabel, detail: ph.aiImpactDetail };
+
+  const active = phases.find(p => p.id === activePhase);
+
+  /* Team ratios — classic & 2025 unchanged; 2026 = orchestration-era estimate. */
+  const teamRatios = {
+    classic: { pm: 1, design: 0.5, dev: 6 },
+    ai2025:  { pm: 1.5, design: 1, dev: 3 },
+    ai2026:  { pm: 1.5, design: 1, dev: 2 },
+  };
+  const ratioNotes = {
+    ai2025: "Source : estimation consensus mi-2025 — varie selon maturité IA de l'équipe",
+    ai2026: "Source : estimation mi-2026 — le dev bascule vers l'orchestration ; varie fortement selon maturité",
+  };
+  const ratio = teamRatios[mode];
+  const maxRatio = Math.max(ratio.pm, ratio.design, ratio.dev);
+  const pctOf = r => { const t = r.pm + r.design + r.dev; return { pm: r.pm / t, design: r.design / t, dev: r.dev / t }; };
+  const pctClassic = pctOf(teamRatios.classic);
+  const pctNow = pctOf(ratio);
+  const etpLabel = mode === "classic" ? "(classique Agile)" : mode === "ai2025" ? "(avec IA — 2025)" : "(avec IA — 2026, agentique)";
+
+  const legendStatuses = Object.entries(statusConfig).filter(([k]) => mode === "ai2026" || k !== "critical");
+
+  return (
+    <div style={{ fontFamily: "-apple-system,'SF Pro Display','SF Pro Text','Inter','Helvetica Neue',system-ui,sans-serif", minHeight: "100vh", color: "#1D1D1F", padding: isMobile ? "16px 12px" : "28px 20px" }}>
+      <div style={{ maxWidth: 1100, margin: "0 auto" }}>
+
+        {/* Header — logo left, share right */}
+        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 12, marginBottom: isMobile ? 16 : 22 }}>
+          <div className="glass-subtle" style={{ display: "inline-flex", alignItems: "center", padding: isMobile ? "6px 14px" : "8px 18px", borderRadius: 999 }}>
+            <img src="logo_nexton.png" alt="Nexton" style={{ height: isMobile ? 18 : 22, width: "auto", display: "block" }} />
+          </div>
+          <button onClick={copyLink} aria-label="Copier le lien de cette vue" aria-live="polite" style={{ display: "inline-flex", alignItems: "center", gap: 6, padding: isMobile ? "8px 13px" : "9px 16px", minHeight: 40, borderRadius: 999, cursor: "pointer", border: "0.5px solid rgba(255,255,255,0.6)", background: "rgba(255,255,255,0.5)", backdropFilter: "blur(20px) saturate(1.6)", WebkitBackdropFilter: "blur(20px) saturate(1.6)", boxShadow: "0 1px 8px rgba(0,0,0,0.05)", color: copied ? "#1E7A34" : "#3A3A3C", fontSize: isMobile ? 12 : 12.5, fontWeight: 600, transition: "color 0.2s ease", fontFamily: "inherit", whiteSpace: "nowrap" }}>
+            {copied
+              ? <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}><polyline points="20 6 9 17 4 12" /></svg>
+              : <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1" /><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1" /></svg>}
+            <span>{copied ? "Lien copié" : "Copier le lien"}</span>
+          </button>
+        </div>
+
+        {/* Hero — left aligned */}
+        <div style={{ marginBottom: isMobile ? 22 : 34 }}>
+          <h1 className="display" style={{ fontSize: isMobile ? 30 : 54, color: "#1D1D1F", margin: 0, letterSpacing: isMobile ? "-0.02em" : "-0.015em", lineHeight: 1.02, textTransform: "uppercase", textWrap: "balance", maxWidth: 820 }}>
+            Cycle de développement<br /><span style={{ color: "#007AFF" }}>à l'ère de l'IA</span>
+          </h1>
+          <p style={{ fontSize: isMobile ? 13 : 16, color: "#3A3A3C", marginTop: isMobile ? 10 : 14, fontWeight: 400, lineHeight: 1.45, maxWidth: 640, textWrap: "pretty" }}>8&nbsp;phases · 3&nbsp;rôles · 3&nbsp;états. Du cycle classique au cycle assisté (2025), puis agentique (2026) — ce qui s'accélère, ce qui devient critique, ce qui se transforme.</p>
+        </div>
+
+        {/* Toggle — 3 states */}
+        <div style={{ display: "flex", justifyContent: "flex-start", marginBottom: isMobile ? 18 : 24 }}>
+          <div className="glass" style={{ display: "inline-flex", borderRadius: 22, overflow: "hidden", padding: 3, maxWidth: "100%" }}>
+            {MODES.map(m => {
+              const on = mode === m.id;
+              const isClassic = m.id === "classic";
+              return (
+                <button key={m.id} onClick={() => setMode(m.id)} aria-pressed={on}
+                  style={{ display: "inline-flex", alignItems: "center", gap: 6, padding: isMobile ? "10px 12px" : "11px 22px", minHeight: 44, cursor: "pointer", border: "none", fontSize: isMobile ? 12.5 : 14, fontWeight: 600,
+                    background: on ? (isClassic ? "rgba(255,255,255,0.85)" : m.grad) : "transparent",
+                    color: on ? (isClassic ? "#1D1D1F" : "#fff") : "#636366",
+                    borderRadius: 19, transition: "all 0.3s ease",
+                    boxShadow: on ? (isClassic ? "0 1px 4px rgba(0,0,0,0.08)" : m.shadow) : "none",
+                    whiteSpace: "nowrap" }}>
+                  {m.icon && <Ico name={m.icon} size={13} color={on ? "#fff" : "#636366"} />}
+                  {isMobile ? m.short : m.label}
+                </button>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Team Ratio */}
+        <div className="glass-strong" style={{ borderRadius: 20, padding: isMobile ? "14px 14px" : "18px 24px", marginBottom: isMobile ? 16 : 20, transition: "all 0.3s" }}>
+          <div style={{ fontSize: 11, fontWeight: 600, color: "#636366", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: isMobile ? 10 : 12 }}>
+            ETP type {etpLabel}
+          </div>
+          <div style={{ display: "flex", gap: isMobile ? 10 : 20, alignItems: "flex-end", justifyContent: "center" }}>
+            {Object.entries(roleConfig).map(([key, cfg]) => {
+              const rk = key === "product" ? "pm" : key;
+              const val = ratio[rk];
+              const height = (val / maxRatio) * (isMobile ? 60 : 80);
+              const pct = Math.round(pctNow[rk] * 100);
+              const deltaPts = Math.round((pctNow[rk] - pctClassic[rk]) * 100);
+              const deltaColor = deltaPts > 0 ? "#1E7A34" : deltaPts < 0 ? "#D70015" : "#636366";
+              const deltaArrow = deltaPts > 0 ? "↑" : deltaPts < 0 ? "↓" : "=";
+              return (
+                <div key={key} style={{ textAlign: "center", minWidth: isMobile ? 60 : 80, flex: isMobile ? "1 1 0" : "0 0 auto" }}>
+                  <div style={{ display: "flex", alignItems: "baseline", justifyContent: "center", gap: 4 }}>
+                    <div style={{ fontSize: isMobile ? 18 : 22, fontWeight: 700, color: txt(cfg.color), transition: "all 0.5s" }}>{val}</div>
+                    <div style={{ fontSize: isMobile ? 11 : 12, fontWeight: 600, color: "#636366" }}>ETP</div>
+                  </div>
+                  <div style={{ display: "inline-flex", alignItems: "center", gap: 4, marginTop: 3, padding: isMobile ? "2px 8px" : "2px 10px", borderRadius: 999, background: `${cfg.color}14`, border: `0.5px solid ${cfg.color}33` }}>
+                    <span style={{ fontSize: isMobile ? 13 : 14, fontWeight: 700, color: txt(cfg.color), transition: "all 0.5s", fontVariantNumeric: "tabular-nums" }}>{pct}%</span>
+                  </div>
+                  <div style={{ width: isMobile ? 44 : 60, height, background: `linear-gradient(180deg, ${cfg.color}33 0%, ${cfg.color}15 100%)`, borderRadius: "10px 10px 0 0", margin: "6px auto 0", border: `1px solid ${cfg.color}33`, transition: "height 0.6s cubic-bezier(0.22,1,0.36,1)", backdropFilter: "blur(10px)" }} />
+                  <div style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", gap: 5, fontSize: isMobile ? 11 : 12, color: "#636366", marginTop: 6 }}><Ico name={cfg.icon} size={isMobile ? 12 : 13} color={txt(cfg.color)} /> {cfg.label}</div>
+                  {isAi && deltaPts !== 0 && (
+                    <div style={{ marginTop: 4, fontSize: isMobile ? 10 : 11, fontWeight: 600, color: deltaColor, fontVariantNumeric: "tabular-nums", letterSpacing: "0.01em" }}>
+                      {deltaArrow} {deltaPts > 0 ? "+" : ""}{deltaPts} pts
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+          {isAi && <div style={{ textAlign: "left", marginTop: 12, fontSize: isMobile ? 11 : 12, color: "#6E6E73", lineHeight: 1.4 }}>{ratioNotes[mode]}</div>}
+        </div>
+
+        {/* Role convergence — the 2026 structural caveat */}
+        {mode === "ai2026" && (
+          <div className="glass ix-rise" style={{ borderRadius: 16, padding: isMobile ? "11px 13px" : "13px 18px", marginBottom: isMobile ? 16 : 20, display: "flex", gap: 10, alignItems: "flex-start", border: "0.5px solid rgba(175,82,222,0.32)" }}>
+            <Ico name="swap" size={16} color="#8E3FB8" sw={2.25} style={{ marginTop: 2 }} />
+            <div style={{ fontSize: isMobile ? 11.5 : 12.5, color: BODY, lineHeight: 1.55 }}>
+              <strong style={{ color: "#8E3FB8" }}>Convergence des rôles</strong> — les frontières Produit / Design / Dev se brouillent : les designers livrent du code, les PM écrivent les specs des agents, les devs orchestrent. Les trois colonnes décrivent des fonctions, plus des métiers étanches <span style={{ color: FAINT }}>(AI in Design 2026)</span>.
+            </div>
+          </div>
+        )}
+
+        {/* Timeline — 4×2 grid (2×4 on mobile) */}
+        <div style={{ display: "grid", gridTemplateColumns: isMobile ? "repeat(2, 1fr)" : "repeat(4, 1fr)", gap: isMobile ? 8 : 10, margin: "0 0 16px" }}>
+          {phases.map((phase, i) => {
+            const imp = impactOf(phase);
+            const impact = impactConfig[imp.key];
+            const isActive = activePhase === phase.id;
+            return (
+              <button key={phase.id} aria-expanded={isActive} aria-label={`Phase ${i + 1} : ${phase.name} — ${phase.subtitle}`}
+                onClick={() => { setActivePhase(isActive ? null : phase.id); setActiveRole(null); }}
+                className={isActive ? "glass-strong" : "glass-subtle"}
+                style={{ borderRadius: 16, padding: isMobile ? "11px 8px" : "14px 10px", cursor: "pointer", transition: "all 0.25s ease", textAlign: "center", position: "relative", border: isActive ? `1.5px solid ${phase.color}55` : "0.5px solid rgba(255,255,255,0.5)", background: isActive ? `linear-gradient(135deg, ${phase.color}18 0%, rgba(255,255,255,0.6) 100%)` : undefined, minHeight: isMobile ? 72 : "auto" }}>
+                {isAi && <div key={mode} className="ix-pop" title={impact.label} style={{ position: "absolute", top: -8, right: -6, animationDelay: (i * 55) + "ms", display: "flex", alignItems: "center", justifyContent: "center", background: `linear-gradient(135deg, ${impact.color}, ${impact.color}CC)`, color: "#fff", borderRadius: 8, padding: "3px 5px", lineHeight: 0, boxShadow: `0 2px 6px ${impact.color}40` }}><Ico name={impact.icon} size={12} color="#fff" sw={2.75} /></div>}
+                <div style={{ fontSize: isMobile ? 9 : 10, fontWeight: 600, color: txt(phase.color), textTransform: "uppercase", letterSpacing: "0.05em" }}>Phase {i + 1}</div>
+                <div style={{ fontSize: isMobile ? 12 : 13, fontWeight: 700, color: "#1D1D1F", marginTop: 2, lineHeight: 1.2 }}>{phase.name}</div>
+                <div style={{ fontSize: 10, color: "#636366", marginTop: 2, lineHeight: 1.2 }}>{phase.subtitle}</div>
+              </button>
+            );
+          })}
+        </div>
+
+        <div style={{ textAlign: "left", marginBottom: isMobile ? 18 : 24 }}>
+          <div className="glass-subtle" style={{ display: "inline-flex", alignItems: "center", gap: 7, borderRadius: 20, padding: isMobile ? "5px 12px" : "5px 14px", fontSize: isMobile ? 10 : 11, color: "#636366", maxWidth: "100%" }}>
+            <Ico name="cycle" size={13} color="#636366" /> <span>Cycle itératif — la phase 8 alimente la phase 1</span>
+          </div>
+        </div>
+
+        {/* Legend */}
+        {isAi && (
+          <div key={"legend-" + mode} style={{ display: "flex", gap: isMobile ? 8 : 14, justifyContent: "center", flexWrap: "wrap", marginBottom: 20 }}>
+            {legendStatuses.map(([key, cfg], idx) => (
+              <div key={key} className="ix-rise" style={{ animationDelay: (idx * 50) + "ms", display: "flex", alignItems: "center", gap: 5, fontSize: isMobile ? 10 : 11, color: cfg.text, fontWeight: 600 }}>
+                <Ico name={cfg.icon} size={isMobile ? 11 : 12} color={cfg.text} /> {cfg.label}
+              </div>
+            ))}
+          </div>
+        )}
+
+        {/* Phase Detail or Matrix */}
+        {active ? (
+          <div className="glass-strong" style={{ borderRadius: 22, overflow: "hidden", marginBottom: 24, border: `0.5px solid ${active.color}22` }}>
+            <div style={{ background: `linear-gradient(135deg, ${active.color}0D 0%, ${active.color}05 100%)`, borderBottom: `0.5px solid ${active.color}18`, padding: isMobile ? "14px 16px" : "20px 24px", display: "flex", flexDirection: isMobile ? "column" : "row", justifyContent: "space-between", alignItems: isMobile ? "stretch" : "center", flexWrap: "wrap", gap: 12 }}>
+              <div>
+                <h2 className="display" style={{ margin: 0, fontSize: isMobile ? 20 : 26, color: txt(active.color), letterSpacing: "-0.01em", lineHeight: 1.04, textTransform: "uppercase" }}>{active.name}</h2>
+                <p style={{ margin: "2px 0 0", fontSize: isMobile ? 12 : 13, color: "#636366" }}>{active.subtitle}</p>
+                {isAi && (() => {
+                  const imp = impactOf(active);
+                  const ic = impactConfig[imp.key];
+                  return (
+                    <div key={mode} className="glass-subtle" style={{ marginTop: 10, padding: isMobile ? "8px 12px" : "9px 14px", borderRadius: 12, fontSize: isMobile ? 11 : 12, color: txt(ic.color), lineHeight: 1.5, display: "flex", alignItems: "flex-start", gap: 7 }}>
+                      <Ico name={ic.icon} size={15} color={ic.text} sw={2.25} style={{ marginTop: 1 }} />
+                      <span><strong>{imp.label}</strong> — {imp.detail}</span>
+                    </div>
+                  );
+                })()}
+              </div>
+              <div style={{ display: "flex", gap: 6, flexWrap: "wrap", justifyContent: isMobile ? "center" : "flex-start" }}>
+                {Object.entries(roleConfig).map(([key, cfg]) => (
+                  <button key={key} onClick={() => setActiveRole(activeRole === key ? null : key)} aria-pressed={activeRole === key}
+                    style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", gap: 6, background: activeRole === key ? cfg.color : "rgba(255,255,255,0.5)", border: activeRole === key ? "none" : `1px solid ${cfg.color}33`, borderRadius: 12, padding: isMobile ? "8px 13px" : "8px 15px", minHeight: 38, cursor: "pointer", fontSize: isMobile ? 11 : 12, fontWeight: 600, color: activeRole === key ? "#fff" : txt(cfg.color), transition: "all 0.2s ease", backdropFilter: "blur(10px)", boxShadow: activeRole === key ? `0 2px 8px ${cfg.color}33` : "0 1px 3px rgba(0,0,0,0.04)", flex: isMobile ? "1 1 auto" : "0 0 auto", whiteSpace: "nowrap" }}>
+                    <Ico name={cfg.icon} size={isMobile ? 13 : 14} color={activeRole === key ? "#fff" : txt(cfg.color)} /> {cfg.label}
+                  </button>
+                ))}
+              </div>
+            </div>
+            <div style={{ padding: isMobile ? "16px" : "20px 24px" }}>
+              <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "repeat(auto-fit, minmax(280px, 1fr))", gap: isMobile ? 12 : 16 }}>
+                {Object.entries(roleConfig).filter(([key]) => !activeRole || activeRole === key).map(([key, cfg]) => {
+                  const roleData = active.roles[key];
+                  const tasks = tasksOf(roleData);
+                  return (
+                    <div key={key} className="glass-subtle" style={{ borderRadius: 16, padding: isMobile ? 12 : 16 }}>
+                      <div style={{ display: "flex", alignItems: "center", gap: 6, marginBottom: isMobile ? 10 : 12 }}>
+                        <Ico name={cfg.icon} size={isMobile ? 16 : 18} color={txt(cfg.color)} sw={2.25} />
+                        <h3 style={{ margin: 0, fontSize: isMobile ? 14 : 15, fontWeight: 700, color: txt(cfg.color) }}>{cfg.label}</h3>
+                      </div>
+                      <ul style={{ margin: 0, padding: 0, listStyle: "none" }}>
+                        {tasks.map((task, i) => {
+                          const s = statusConfig[task.status] || statusConfig.keep;
+                          return (
+                            <li key={i} style={{ fontSize: isMobile ? 12 : 12.5, lineHeight: 1.5, color: "#3A3A3C", padding: "6px 0 6px 8px", borderBottom: i < tasks.length - 1 ? "1px solid rgba(0,0,0,0.04)" : "none", background: isAi ? s.bg : "transparent", borderRadius: 6, marginBottom: 2 }}>
+                              <div style={{ display: "flex", alignItems: "flex-start", gap: 6 }}>
+                                {isAi ? <span style={{ flexShrink: 0, marginTop: 2 }}><Ico name={s.icon} size={12} color={s.text} sw={2.5} /></span>
+                                  : <span style={{ width: 5, height: 5, borderRadius: "50%", background: cfg.color, flexShrink: 0, marginTop: 6 }} />}
+                                <div style={{ minWidth: 0, flex: 1 }}>
+                                  <span style={{ color: isAi && task.status === "reduced" ? "#6E6E73" : "#3A3A3C", fontWeight: isAi && task.status === "critical" ? 600 : 400 }}>{task.text}</span>
+                                  {isAi && task.note && <div style={{ fontSize: isMobile ? 10.5 : 11, color: s.text, marginTop: 2, fontWeight: 500, lineHeight: 1.4 }}>{task.note}</div>}
+                                </div>
+                              </div>
+                            </li>
+                          );
+                        })}
+                      </ul>
+                    </div>
+                  );
+                })}
+              </div>
+              <div className="glass-subtle" style={{ marginTop: 16, borderRadius: 14, padding: isMobile ? "12px 14px" : "14px 18px" }}>
+                <div style={{ display: "inline-flex", alignItems: "center", gap: 6, fontSize: 11, fontWeight: 600, color: "#636366", textTransform: "uppercase", letterSpacing: "0.05em", marginBottom: 8 }}><Ico name="box" size={13} color="#636366" /> Livrables</div>
+                <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
+                  {deliverablesOf(active.deliverables).map((d, i) => (
+                    <span key={i} style={{ background: `${active.color}14`, border: `1px solid ${active.color}2E`, borderRadius: 10, padding: "4px 12px", fontSize: isMobile ? 11 : 12, color: txt(active.color), fontWeight: 600 }}>{d}</span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        ) : (
+          <div className="glass-strong" style={{ borderRadius: 22, padding: isMobile ? 14 : 24 }}>
+            <h3 className="display" style={{ margin: "0 0 16px", fontSize: isMobile ? 15 : 20, color: "#1D1D1F", letterSpacing: "-0.01em", lineHeight: 1.1, textTransform: "uppercase" }}>
+              Vue d'ensemble <span style={{ color: mode === "ai2026" ? "#8E3FB8" : mode === "ai2025" ? "#007AFF" : "#636366", fontWeight: 700 }}>— {mode === "classic" ? "Intensité par rôle et par phase" : mode === "ai2025" ? "Impact IA 2025 par phase" : "Impact IA 2026 par phase"}</span>
+            </h3>
+            <div style={{ overflowX: "auto", WebkitOverflowScrolling: "touch", margin: isMobile ? "0 -14px" : 0, padding: isMobile ? "0 14px" : 0 }}>
+              <table key={mode} style={{ width: "100%", borderCollapse: "collapse", fontSize: isMobile ? 11 : 12, minWidth: isMobile ? (isAi ? 460 : 360) : "auto", tableLayout: "fixed" }}>
+                <colgroup>
+                  <col style={{ width: isAi ? "22%" : "28%" }} />
+                  {isAi && <col style={{ width: "22%" }} />}
+                  <col style={{ width: isAi ? "18.67%" : "24%" }} />
+                  <col style={{ width: isAi ? "18.67%" : "24%" }} />
+                  <col style={{ width: isAi ? "18.66%" : "24%" }} />
+                </colgroup>
+                <thead>
+                  <tr>
+                    <th style={{ textAlign: "left", padding: isMobile ? "8px 6px" : "10px 10px", borderBottom: "1px solid rgba(0,0,0,0.08)", color: "#636366", fontWeight: 600 }}>Phase</th>
+                    {isAi && <th style={{ textAlign: "center", padding: isMobile ? "8px 6px" : "10px 10px", borderBottom: "1px solid rgba(0,0,0,0.08)", color: "#636366", fontWeight: 600 }}>Impact IA</th>}
+                    {Object.values(roleConfig).map(r => (
+                      <th key={r.label} style={{ textAlign: "center", padding: isMobile ? "8px 6px" : "10px 10px", borderBottom: "1px solid rgba(0,0,0,0.08)", color: txt(r.color), fontWeight: 700 }}><span style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", gap: 5 }}><Ico name={r.icon} size={13} color={txt(r.color)} /> {r.label}</span></th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  {phases.map(phase => {
+                    const imp = impactOf(phase);
+                    const impact = impactConfig[imp.key];
+                    return (
+                      <tr key={phase.id} role="button" tabIndex={0} aria-label={`Voir le détail de la phase ${phase.name}`}
+                        onClick={() => { setActivePhase(phase.id); setActiveRole(null); }}
+                        onKeyDown={e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); setActivePhase(phase.id); setActiveRole(null); } }}
+                        style={{ cursor: "pointer", background: "transparent", borderRadius: 8 }}
+                        onMouseEnter={e => (e.currentTarget.style.background = "rgba(0,0,0,0.02)")}
+                        onMouseLeave={e => (e.currentTarget.style.background = "transparent")}>
+                        <td style={{ padding: isMobile ? "10px 6px" : "12px 10px", borderBottom: "1px solid rgba(0,0,0,0.04)" }}>
+                          <span style={{ color: txt(phase.color), fontWeight: 700 }}>{phase.name}</span>
+                        </td>
+                        {isAi && (
+                          <td style={{ textAlign: "center", padding: isMobile ? "10px 6px" : "12px 10px", borderBottom: "1px solid rgba(0,0,0,0.04)" }}>
+                            <span style={{ display: "inline-flex", alignItems: "center", gap: 4, background: `${impact.color}1A`, color: impact.text, borderRadius: 8, padding: isMobile ? "3px 7px" : "3px 10px", fontSize: isMobile ? 10 : 11, fontWeight: 700, whiteSpace: "nowrap" }}><Ico name={impact.icon} size={11} color={impact.text} sw={2.5} /> {impact.label}</span>
+                          </td>
+                        )}
+                        {Object.keys(roleConfig).map(role => {
+                          const tasks = mode === "classic" ? phase.roles[role].classic : mode === "ai2025" ? phase.roles[role].ai : phase.roles[role].ai2026;
+                          const count = tasks.length;
+                          const bars = Math.round((count / 8) * 5);
+                          return (
+                            <td key={role} style={{ textAlign: "center", padding: isMobile ? "10px 4px" : "12px 10px", borderBottom: "1px solid rgba(0,0,0,0.04)" }}>
+                              <div style={{ display: "flex", justifyContent: "center", gap: 2 }}>
+                                {[...Array(5)].map((_, i) => (
+                                  <div key={i} style={{ width: isMobile ? 5 : 7, height: isMobile ? 16 : 18, borderRadius: 3, background: i < bars ? `${roleConfig[role].color}88` : `${roleConfig[role].color}15`, transition: "background 0.4s" }} />
+                                ))}
+                              </div>
+                              <div style={{ fontSize: 10, color: "#636366", marginTop: 3 }}>{count}</div>
+                            </td>
+                          );
+                        })}
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+            </div>
+            <p style={{ fontSize: 11, color: "#636366", marginTop: 14, textAlign: "left" }}>{isMobile ? "Touche une phase pour le détail" : "Clique sur une phase pour le détail"}</p>
+          </div>
+        )}
+
+        {/* Sources — the studies behind the 2025 & 2026 states */}
+        <SourcesSection isMobile={isMobile} />
+
+        <div style={{ textAlign: "left", marginTop: isMobile ? 14 : 18, fontSize: isMobile ? 10 : 11, color: "#6E6E73", fontWeight: 400, letterSpacing: "0.02em" }}>
+          © 2026 Laurent Pantanacce pour Nexton
+        </div>
+      </div>
+    </div>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById("root")).render(<DevLifecycle />);
+</script>
+</body>
+</html>
